@@ -45,10 +45,10 @@
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-&none  &kp Q  &kp W               &kp F           &kp P           &kp B                &kp J            &kp L            &kp U                &kp Y    &kp SEMICOLON  &none
-&none  &kp A  &mt LEFT_CONTROL R  &mt LEFT_ALT S  &mt LEFT_GUI T  &kp G                &mt RIGHT_GUI M  &mt RIGHT_ALT N  &mt RIGHT_CONTROL F  &kp I    &kp O          &none
-&none  &kp Z  &kp X               &kp C           &kp D           &kp V                &kp K            &kp H            &kp COMMA            &kp DOT  &kp FSLH       &none
-                                  &mo 2           &kp LEFT_SHIFT  &kp LC(BACKSPACE)    &kp ENTER        &kp SPACE        &mo 1
+&none  &kp Q  &kp W               &kp F           &kp P           &kp B                &kp J      &kp L            &kp U            &kp Y                &kp SEMICOLON  &none
+&none  &kp A  &mt LEFT_CONTROL R  &mt LEFT_ALT S  &mt LEFT_GUI T  &kp G                &kp M      &mt RIGHT_GUI N  &mt RIGHT_ALT F  &mt RIGHT_CONTROL I  &kp O          &none
+&none  &kp Z  &kp X               &kp C           &kp D           &kp V                &kp K      &kp H            &kp COMMA        &kp DOT              &kp FSLH       &none
+                                  &mo 2           &kp LEFT_SHIFT  &kp LC(BACKSPACE)    &kp ENTER  &kp SPACE        &mo 1
             >;
         };
 
