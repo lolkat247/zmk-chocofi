@@ -9,10 +9,35 @@
 #include <dt-bindings/zmk/keys.h>
 
 / {
+    combos {
+        compatible = "zmk,combos";
+
+        SpotlightSearch {
+            bindings = <&kp LG(SPACE)>;
+            key-positions = <37 40>;
+        };
+    };
+
+    macros {
+        personal_email: email {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&none &kp J &kp A &kp C &kp O &kp B &kp DOT &kp D &kp S &kp DOT &kp I &kp G &kp L &kp E &kp S &kp I &kp A &kp S &kp DOT &kp N5 &kp AT &kp G &kp M &kp A &kp I &kp L &kp DOT &kp C &kp O &kp M>;
+            label = "EMAIL";
+        };
+
+        school_email: school_email {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&none &kp J &kp D &kp I &kp A &kp Z &kp I &kp G &kp L &kp E &kp S &kp I &kp A &kp S &kp N2 &kp N3 &kp N8 &kp N3 &kp AT &kp F &kp L &kp O &kp R &kp I &kp D &kp A &kp P &kp O &kp L &kp Y &kp DOT &kp E &kp D &kp U>;
+            label = "SCHOOL_EMAIL";
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
-        default_layer {
+        Base {
             // -----------------------------------------------------------------------------------------
             // |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BSPC |
             // | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
@@ -20,23 +45,23 @@
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-&none  &kp Q  &kp W  &kp E     &kp R  &kp T        &kp Y  &kp U      &kp I      &kp O    &kp P     &none
-&none  &kp A  &kp S  &kp D     &kp F  &kp G        &kp H  &kp J      &kp K      &kp L    &kp SEMI  &none
-&none  &kp Z  &kp X  &kp C     &kp V  &kp B        &kp N  &kp M      &kp COMMA  &kp DOT  &kp FSLH  &none
-                     &kp LGUI  &mo 2  &kp ENTER    &mo 1  &kp SPACE  &kp RALT
+&none  &kp Q  &kp W               &kp F           &kp P           &kp B                &kp J            &kp L            &kp U                &kp Y    &kp SEMICOLON  &none
+&none  &kp A  &mt LEFT_CONTROL R  &mt LEFT_ALT S  &mt LEFT_GUI T  &kp G                &mt RIGHT_GUI M  &mt RIGHT_ALT N  &mt RIGHT_CONTROL F  &kp I    &kp O          &none
+&none  &kp Z  &kp X               &kp C           &kp D           &kp V                &kp K            &kp H            &kp COMMA            &kp DOT  &kp FSLH       &none
+                                  &mo 2           &kp LEFT_SHIFT  &kp LC(BACKSPACE)    &kp ENTER        &kp SPACE        &mo 1
             >;
         };
 
-        layer_3 {
+        SymbolsArrows {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-                        &trans  &trans  &trans    &trans  &trans  &trans
+&trans  &kp ESCAPE     &kp LG(Z)       &kp UP_ARROW    &kp LG(C)        &kp LG(X)        &kp GRAVE    &kp SINGLE_QUOTE      &kp EXCLAMATION        &kp BACKSLASH  &kp ASTERISK  &trans
+&trans  &kp C_AL_LOCK  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp LG(V)        &kp PERCENT  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp MINUS      &kp EQUAL     &trans
+&trans  &kp C_SLEEP    &none           &none           &kp LC(C)        &kp LG(R)        &kp HASH     &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp AT_SIGN    &none         &trans
+                                       &mo 3           &kp LEFT_SHIFT   &kp BACKSPACE    &none        &none                 &trans
             >;
         };
 
-        lower_layer {
+        NumbersMediaFunction {
             // -----------------------------------------------------------------------------------------
             // |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BSPC |
             // | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
@@ -44,10 +69,10 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&kp TAB     &kp N1        &kp N2        &kp N3        &kp N4        &kp N5          &kp N6    &kp N7    &kp N8    &kp N9     &kp N0  &kp BSPC
-&bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT  &trans  &trans
-&kp LSHFT   &trans        &trans        &trans        &trans        &trans          &trans    &trans    &trans    &trans     &trans  &trans
-                                        &kp LGUI      &trans        &kp SPACE       &kp RET   &trans    &kp RALT
+&trans  &kp F12  &kp F7  &kp F8  &kp F9  &kp C_NEXT          &kp C_VOLUME_UP  &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &trans  &trans
+&trans  &kp F11  &kp F4  &kp F5  &kp F6  &kp C_PLAY_PAUSE    &kp C_VOL_DN     &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &trans  &trans
+&trans  &kp F10  &kp F1  &kp F2  &kp F3  &kp C_PREVIOUS      &kp K_MUTE       &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &trans  &trans
+                         &trans  &trans  &kp SPACE           &kp RET          &kp KP_NUMBER_0  &mo 3
             >;
         };
 
@@ -59,10 +84,10 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&kp TAB    &kp EXCL  &kp AT  &kp HASH  &kp DLLR  &kp PRCNT    &kp CARET  &kp AMPS   &kp ASTRK  &kp LPAR  &kp RPAR  &kp BSPC
-&kp LCTRL  &trans    &trans  &trans    &trans    &trans       &kp MINUS  &kp EQUAL  &kp LBKT   &kp RBKT  &kp BSLH  &kp GRAVE
-&kp LSHFT  &trans    &trans  &trans    &trans    &trans       &kp UNDER  &kp PLUS   &kp LBRC   &kp RBRC  &kp PIPE  &kp TILDE
-                             &kp LGUI  &trans    &kp SPACE    &kp RET    &trans     &kp RALT
+&trans  &none         &none         &none         &none         &bt BT_CLR      &none  &none            &none          &none  &none  &none
+&trans  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &none  &personal_email  &school_email  &none  &none  &none
+&trans  &none         &none         &none         &none         &none           &none  &none            &none          &none  &none  &none
+                                    &none         &none         &none           &none  &none            &none
             >;
         };
     };
