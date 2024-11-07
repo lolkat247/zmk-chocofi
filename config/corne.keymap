@@ -57,7 +57,7 @@
             bindings = <
 &trans  &kp ESCAPE     &kp LG(Z)       &kp UP_ARROW    &kp LG(C)        &kp LG(X)        &kp GRAVE    &kp SINGLE_QUOTE      &kp EXCLAMATION        &kp BACKSLASH  &kp ASTERISK  &trans
 &trans  &kp C_AL_LOCK  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp LG(V)        &kp PERCENT  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp MINUS      &kp EQUAL     &trans
-&trans  &kp C_SLEEP    &none           &none           &kp LC(C)        &kp LG(R)        &kp HASH     &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp TAB        &kp AT_SIGN   &trans
+&trans  &kp C_SLEEP    &kp LG(A)       &none           &kp LC(C)        &kp LG(R)        &kp HASH     &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp TAB        &kp AT_SIGN   &trans
                                        &mo 3           &kp LEFT_SHIFT   &kp BACKSPACE    &none        &none                 &trans
             >;
         };
