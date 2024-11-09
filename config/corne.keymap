@@ -84,7 +84,7 @@
             >;
         };
 
-        raise_layer {
+        Settings {
             // -----------------------------------------------------------------------------------------
             // |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BSPC |
             // | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
@@ -92,10 +92,19 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&trans  &sys_reset         &bootloader   &none         &none         &bt BT_CLR      &none  &none            &none          &bootloader  &sys_reset  &none
+&trans  &sys_reset         &bootloader   &none         &none         &bt BT_CLR      &to 4  &none            &none          &bootloader  &sys_reset  &none
 &trans  &bt BT_SEL 0       &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &none  &personal_email  &school_email  &none        &none       &none
 &trans  &ext_power EP_TOG  &none         &none         &none         &none           &none  &none            &none          &none        &none       &none
                                          &none         &none         &none           &none  &none            &none
+            >;
+        };
+
+        Gaming {
+            bindings = <
+&none  &kp ESC           &kp Q  &kp W  &kp E      &kp R        &none  &none  &none  &none  &none  &none
+&none  &kp LSHFT         &kp A  &kp S  &kp D      &kp F        &none  &to 0  &none  &none  &none  &none
+&none  &kp LEFT_CONTROL  &kp Z  &kp X  &kp C      &kp V        &none  &none  &none  &none  &none  &none
+                                &none  &kp SPACE  &kp SPACE    &to 0  &to 0  &none
             >;
         };
     };
