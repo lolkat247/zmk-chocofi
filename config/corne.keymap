@@ -64,7 +64,7 @@
             bindings = <
 &trans  &kp ESCAPE     &kp LG(Z)       &kp UP_ARROW    &kp TAB          &kp DOLLAR       &kp GRAVE      &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp BACKSLASH  &kp ASTERISK     &trans
 &trans  &kp C_AL_LOCK  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp PERCENT      &kp AMPERSAND  &kp MINUS             &kp EQUAL              &kp SQT        &kp EXCLAMATION  &trans
-&trans  &kp C_SLEEP    &none           &none           &none            &none            &kp HASH       &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp CARET      &kp AT_SIGN      &trans
+&trans  &kp C_SLEEP    &kp LA(LEFT)    &none           &kp LA(RIGHT)    &none            &kp HASH       &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp CARET      &kp AT_SIGN      &trans
                                        &mo 3           &kp LEFT_SHIFT   &kp BACKSPACE    &none          &none                 &trans
             >;
         };
