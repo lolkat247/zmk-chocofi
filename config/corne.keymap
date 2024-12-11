@@ -17,6 +17,11 @@
             bindings = <&kp LG(SPACE)>;
             key-positions = <37 40>;
         };
+
+        OneHandedLayer2 {
+            bindings = <&mo 2>;
+            key-positions = <40 41>;
+        };
     };
 
     macros {
@@ -33,13 +38,6 @@
             bindings = <&kp J &kp D &kp I &kp A &kp Z &kp I &kp G &kp L &kp E &kp S &kp I &kp A &kp S &kp N2 &kp N3 &kp N8 &kp N3 &kp AT &kp F &kp L &kp O &kp R &kp I &kp D &kp A &kp P &kp O &kp L &kp Y &kp DOT &kp E &kp D &kp U>;
             label = "SCHOOL_EMAIL";
         };
-
-        backspace_word: backspace_word {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp LA(BACKSPACE) &kp SPACE>;
-            label = "BACKSPACE_WORD";
-        };
     };
 
     keymap {
@@ -53,10 +51,10 @@
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-&none  &kp Q        &mt LEFT_CONTROL W  &mt LEFT_ALT F  &mt LEFT_GUI P  &mt LG(C) B          &kp J      &mt RIGHT_GUI L  &mt RIGHT_ALT U  &mt RIGHT_CONTROL Y  &kp SEMICOLON  &none
-&none  &mt LG(A) A  &kp R               &kp S           &kp T           &mt LG(V) G          &kp M      &kp N            &kp E            &kp I                &kp O          &none
-&none  &kp Z        &kp X               &kp C           &kp D           &mt LG(X) V          &kp K      &kp H            &kp COMMA        &kp DOT              &kp FSLH       &none
-                                        &mo 2           &kp LEFT_SHIFT  &kp LA(BACKSPACE)    &kp ENTER  &kp SPACE        &mo 1
+&none  &kp Q  &mt LEFT_CONTROL W  &mt LEFT_ALT F  &mt LEFT_GUI P  &mt LG(C) B          &kp J      &mt RIGHT_GUI L  &mt RIGHT_ALT U  &mt RIGHT_CONTROL Y  &kp SEMICOLON  &none
+&none  &kp A  &kp R               &kp S           &kp T           &mt LG(V) G          &kp M      &kp N            &kp E            &kp I                &kp O          &none
+&none  &kp Z  &kp X               &kp C           &kp D           &mt LG(X) V          &kp K      &kp H            &kp COMMA        &kp DOT              &kp FSLH       &none
+                                  &mo 2           &kp LEFT_SHIFT  &kp LA(BACKSPACE)    &kp ENTER  &kp SPACE        &mo 1
             >;
         };
 
@@ -101,10 +99,10 @@
 
         Gaming {
             bindings = <
-&none  &kp ESC           &kp Q  &kp W  &kp E      &kp R        &none  &none  &none  &none  &none  &none
-&none  &kp LSHFT         &kp A  &kp S  &kp D      &kp F        &none  &to 0  &none  &none  &none  &none
-&none  &kp LEFT_CONTROL  &kp Z  &kp X  &kp C      &kp V        &none  &none  &none  &none  &none  &none
-                                &none  &kp SPACE  &kp SPACE    &to 0  &to 0  &none
+&none  &kp ESC           &kp Q  &kp W    &kp E      &kp R              &none  &none  &none  &none  &none  &none
+&none  &kp LSHFT         &kp A  &kp S    &kp D      &kp F              &none  &to 0  &none  &none  &none  &none
+&none  &kp LEFT_CONTROL  &kp Z  &kp X    &kp C      &kp V              &none  &none  &none  &none  &none  &none
+                                &kp TAB  &kp SPACE  &kp RIGHT_SHIFT    &to 0  &to 0  &none
             >;
         };
     };
