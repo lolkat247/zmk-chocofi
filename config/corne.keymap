@@ -28,14 +28,14 @@
         personal_email: email {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp J &kp A &kp C &kp O &kp B &kp DOT &kp D &kp S &kp DOT &kp I &kp G &kp L &kp E &kp S &kp I &kp A &kp S &kp DOT &kp N5 &kp AT &kp G &kp M &kp A &kp I &kp L &kp DOT &kp C &kp O &kp M>;
+            bindings = <&kp O &kp P &kp T &kp I &kp M &kp U &kp S &kp J &kp O &kp N &kp A &kp H &kp AT &kp G &kp M &kp A &kp I &kp L &kp DOT &kp C &kp O &kp M>;
             label = "EMAIL";
         };
 
         school_email: school_email {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp J &kp D &kp I &kp A &kp Z &kp I &kp G &kp L &kp E &kp S &kp I &kp A &kp S &kp N2 &kp N3 &kp N8 &kp N3 &kp AT &kp F &kp L &kp O &kp R &kp I &kp D &kp A &kp P &kp O &kp L &kp Y &kp DOT &kp E &kp D &kp U>;
+            bindings = <&kp LS(H) &kp A &kp P &kp P &kp Y &kp SPACE &kp LS(B) &kp I &kp R &kp T &kp H &kp D &kp A &kp Y &kp EXCL &kp EXCL &kp EXCL &kp SPACE &kp COLON &kp LS(D)>;
             label = "SCHOOL_EMAIL";
         };
 
@@ -65,19 +65,19 @@
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-&none  &kp Q  &mt LEFT_CONTROL W  &mt LEFT_ALT F  &mt LEFT_GUI P  &mt LG(C) B          &kp J      &mt RIGHT_GUI L  &mt RIGHT_ALT U  &mt RIGHT_CONTROL Y  &kp SEMICOLON  &none
-&none  &kp A  &kp R               &kp S           &kp T           &mt LG(V) G          &kp M      &kp N            &kp E            &kp I                &kp O          &none
-&none  &kp Z  &kp X               &kp C           &kp D           &mt LG(X) V          &kp K      &kp H            &kp COMMA        &kp DOT              &kp FSLH       &none
+&none  &kp Q  &mt LEFT_CONTROL W  &mt LEFT_ALT E  &mt LEFT_GUI R  &mt LG(C) T          &kp Y      &mt RIGHT_GUI U  &mt RIGHT_ALT U  &mt RIGHT_CONTROL O  &kp P     &none
+&none  &kp A  &kp S               &kp D           &kp F           &mt LG(V) G          &kp H      &kp J            &kp K            &kp L                &kp SEMI  &none
+&none  &kp Z  &kp X               &kp C           &kp V           &mt LG(X) B          &kp N      &kp M            &kp COMMA        &kp DOT              &kp FSLH  &none
                                   &mo 2           &kp LEFT_SHIFT  &kp LA(BACKSPACE)    &kp ENTER  &kp SPACE        &mo 1
             >;
         };
 
         SymbolsArrows {
             bindings = <
-&trans  &kp ESCAPE     &kp LG(Z)       &kp UP_ARROW    &kp TAB          &kp C_AC_SCROLL_UP      &kp GRAVE    &kp HASH     &kp AMPERSAND  &kp BACKSLASH  &kp ASTERISK     &trans
-&trans  &kp C_AL_LOCK  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp C_AC_SCROLL_DOWN    &smiley      &kp MINUS    &kp EQUAL      &kp SQT        &kp EXCLAMATION  &trans
-&trans  &kp C_SLEEP    &kp LA(LEFT)    &none           &kp LA(RIGHT)    &none                   &big_smiley  &kp PERCENT  &kp DOLLAR     &kp CARET      &kp AT_SIGN      &trans
-                                       &mo 3           &kp LEFT_SHIFT   &kp BACKSPACE           &none        &none        &trans
+&trans  &kp ESCAPE     &kp LG(Z)       &kp UP_ARROW    &kp TAB          &none            &kp GRAVE    &kp HASH     &kp AMPERSAND  &kp BACKSLASH  &kp ASTERISK     &trans
+&trans  &kp C_AL_LOCK  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &none            &smiley      &kp MINUS    &kp EQUAL      &kp SQT        &kp EXCLAMATION  &trans
+&trans  &kp C_SLEEP    &kp LA(LEFT)    &none           &kp LA(RIGHT)    &none            &big_smiley  &kp PERCENT  &kp DOLLAR     &kp CARET      &kp AT_SIGN      &trans
+                                       &mo 3           &kp LEFT_SHIFT   &kp BACKSPACE    &none        &none        &trans
             >;
         };
 
