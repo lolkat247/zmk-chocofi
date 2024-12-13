@@ -142,7 +142,7 @@
             bindings = <
 &trans  &kp ESCAPE            &kp LS(TAB)     &kp UP_ARROW    &kp TAB          &kp HOME         &kp GRAVE    &kp HASH     &kp AMPERSAND  &kp BACKSLASH  &kp ASTERISK     &trans
 &trans  &kp C_AC_SCROLL_UP    &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp END          &smiley      &kp MINUS    &kp EQUAL      &kp SQT        &kp EXCLAMATION  &trans
-&trans  &kp C_AC_SCROLL_DOWN  &kp LA(LEFT)    &none           &kp LA(RIGHT)    &kp DELETE       &big_smiley  &kp PERCENT  &kp DOLLAR     &kp CARET      &kp AT_SIGN      &trans
+&trans  &kp C_AC_SCROLL_DOWN  &kp LC(LEFT)    &none           &kp LC(RIGHT)    &kp DELETE       &big_smiley  &kp PERCENT  &kp DOLLAR     &kp CARET      &kp AT_SIGN      &trans
                                               &mo 3           &kp LEFT_SHIFT   &kp BACKSPACE    &none        &none        &trans
             >;
         };
