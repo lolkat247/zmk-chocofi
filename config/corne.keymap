@@ -15,23 +15,88 @@
 #include <dt-bindings/zmk/pointing.h>
 #include <dt-bindings/zmk/pointing.h>
 
+// Key positions (Chocofi: outer columns 0/11/12/23/24/35 are unused)
+#define KEYS_L 1 2 3 4 5 13 14 15 16 17 25 26 27 28 29
+#define KEYS_R 6 7 8 9 10 18 19 20 21 22 30 31 32 33 34
+#define THUMBS 36 37 38 39 40 41
+
+// Typing cooldown: a mod/combo key pressed within this window after a
+// normal key is always treated as a plain tap. Rule of thumb: >= 10500/WPM.
+#define PRIOR_IDLE 150
+
 / {
+    behaviors {
+        // Left-hand mods: only resolve as hold when paired with a right-hand key or thumb
+        hml: home_row_mod_left {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <PRIOR_IDLE>;
+            bindings = <&kp>, <&kp>;
+            hold-trigger-key-positions = <KEYS_R THUMBS>;
+            hold-trigger-on-release;
+        };
+
+        // Right-hand mods: mirror of hml
+        hmr: home_row_mod_right {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <PRIOR_IDLE>;
+            bindings = <&kp>, <&kp>;
+            hold-trigger-key-positions = <KEYS_L THUMBS>;
+            hold-trigger-on-release;
+        };
+
+        // Clipboard keys (B/G/V): only a deliberate timed hold fires copy/paste/cut
+        clip: clipboard_hold {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <250>;
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <PRIOR_IDLE>;
+            bindings = <&kp>, <&kp>;
+        };
+    };
+
     combos {
         compatible = "zmk,combos";
 
         SpotlightSearch {
             bindings = <&kp LG(SPACE)>;
             key-positions = <37 40>;
+            layers = <0>;
+            timeout-ms = <30>;
+            require-prior-idle-ms = <PRIOR_IDLE>;
+        };
+
+        WindowsSearch {
+            bindings = <&kp LG(S)>;
+            key-positions = <37 40>;
+            layers = <2>;
+            timeout-ms = <30>;
+            require-prior-idle-ms = <PRIOR_IDLE>;
         };
 
         Enclosures {
             bindings = <&mo 7>;
             key-positions = <40 41>;
+            layers = <0 2>;
+            timeout-ms = <30>;
+            require-prior-idle-ms = <PRIOR_IDLE>;
         };
 
         Mouse {
             bindings = <&mo 8>;
-            key-positions = <37 36>;
+            key-positions = <36 37>;
+            layers = <0 2>;
+            timeout-ms = <30>;
+            require-prior-idle-ms = <PRIOR_IDLE>;
         };
     };
 
@@ -76,9 +141,9 @@
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-&none  &kp Q  &mt LEFT_CONTROL W  &mt LEFT_ALT F  &mt LEFT_GUI P  &mt LG(C) B          &kp J      &mt RIGHT_GUI L  &mt RIGHT_ALT U  &mt RIGHT_CONTROL Y  &kp SEMICOLON  &none
-&none  &kp A  &kp R               &kp S           &kp T           &mt LG(V) G          &kp M      &kp N            &kp E            &kp I                &kp O          &none
-&none  &kp Z  &kp X               &kp C           &kp D           &mt LG(X) V          &kp K      &kp H            &kp COMMA        &kp DOT              &kp FSLH       &none
+&none  &kp Q  &hml LEFT_CONTROL W  &hml LEFT_ALT F  &hml LEFT_GUI P  &clip LG(C) B          &kp J      &hmr RIGHT_GUI L  &hmr RIGHT_ALT U  &hmr RIGHT_CONTROL Y  &kp SEMICOLON  &none
+&none  &kp A  &kp R               &kp S           &kp T           &clip LG(V) G          &kp M      &kp N            &kp E            &kp I                &kp O          &none
+&none  &kp Z  &kp X               &kp C           &kp D           &clip LG(X) V          &kp K      &kp H            &kp COMMA        &kp DOT              &kp FSLH       &none
                                   &mo 4           &kp LEFT_SHIFT  &kp LA(BACKSPACE)    &kp ENTER  &kp SPACE        &mo 1
             >;
         };
@@ -94,9 +159,9 @@
 
         WindowsBase {
             bindings = <
-&none  &kp Q  &mt LEFT_CONTROL W  &mt LEFT_ALT F  &mt LEFT_GUI P  &mt LC(C) B          &kp J      &mt LEFT_GUI L  &mt RIGHT_ALT U  &mt RIGHT_CONTROL Y  &kp SEMICOLON  &none
-&none  &kp A  &kp R               &kp S           &kp T           &mt LC(V) G          &kp M      &kp N           &kp E            &kp I                &kp O          &none
-&none  &kp Z  &kp X               &kp C           &kp D           &mt LC(X) V          &kp K      &kp H           &kp COMMA        &kp DOT              &kp FSLH       &none
+&none  &kp Q  &hml LEFT_CONTROL W  &hml LEFT_ALT F  &hml LEFT_GUI P  &clip LC(C) B          &kp J      &hmr LEFT_GUI L  &hmr RIGHT_ALT U  &hmr RIGHT_CONTROL Y  &kp SEMICOLON  &none
+&none  &kp A  &kp R               &kp S           &kp T           &clip LC(V) G          &kp M      &kp N           &kp E            &kp I                &kp O          &none
+&none  &kp Z  &kp X               &kp C           &kp D           &clip LC(X) V          &kp K      &kp H           &kp COMMA        &kp DOT              &kp FSLH       &none
                                   &mo 4           &kp LEFT_SHIFT  &kp LC(BACKSPACE)    &kp ENTER  &kp SPACE       &mo 3
             >;
         };
@@ -118,7 +183,7 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&trans  &kp F12  &kp F7  &kp F8  &kp F9  &kp C_NEXT          &kp C_VOLUME_UP  &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &trans  &trans
+&trans  &kp F12  &kp F7  &kp F8  &kp F9  &kp C_NEXT          &kp C_VOLUME_UP  &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp KP_NUM  &trans
 &trans  &kp F11  &kp F4  &kp F5  &kp F6  &kp C_PREV          &kp C_VOL_DN     &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &trans  &trans
 &trans  &kp F10  &kp F1  &kp F2  &kp F3  &kp C_PLAY_PAUSE    &kp C_MUTE       &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &trans  &trans
                          &trans  &trans  &trans              &kp RET          &kp KP_NUMBER_0  &mo 5
@@ -133,7 +198,7 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&trans  &sys_reset         &bootloader   &soft_off     &none         &bt BT_CLR      &to 6  &to 0            &to 2          &bootloader  &sys_reset  &none
+&trans  &sys_reset         &bootloader   &none         &none         &bt BT_CLR      &to 6  &to 0            &to 2          &bootloader  &sys_reset  &none
 &trans  &bt BT_SEL 0       &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &none  &personal_email  &school_email  &none        &none       &none
 &trans  &ext_power EP_TOG  &none         &none         &none         &none           &none  &none            &none          &none        &none       &none
                                          &none         &none         &none           &none  &none            &none
@@ -153,7 +218,7 @@
             bindings = <
 &none  &none  &none  &none  &none  &none    &kp C_VOL_UP  &kp C_AL_LOCK     &kp LS(LPAR)      &kp LS(RPAR)       &none  &none
 &none  &none  &none  &none  &none  &none    &kp C_VOL_DN  &kp C_PLAY_PAUSE  &kp LEFT_BRACE    &kp RIGHT_BRACE    &none  &none
-&none  &none  &none  &none  &none  &none    &kp C_MUTE    &soft_off         &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &none  &none
+&none  &none  &none  &none  &none  &none    &kp C_MUTE    &none             &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &none  &none
                      &none  &none  &none    &none         &none             &none
             >;
         };
